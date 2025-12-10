@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kahoot Clone - Multi Preguntas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="creator-view">
+            <h1>Crear Kahoot!</h1>
+            <p style="color: #666;">Añade tantas preguntas como quieras.</p>
+            
+            <div class="counter-box">Preguntas guardadas: <span id="question-count">0</span></div>
+
+            <div class="input-group">
+                <input type="text" id="input-question" placeholder="Escribe la pregunta aquí...">
+            </div>
+
+            <div class="options-grid-input">
+                <div class="option-input">
+                    <input type="radio" name="correct-answer" value="0" class="radio-custom">
+                    <input type="text" id="opt-0" placeholder="Respuesta ▲ (Rojo)">
+                </div>
+                <div class="option-input">
+                    <input type="radio" name="correct-answer" value="1" class="radio-custom" checked>
+                    <input type="text" id="opt-1" placeholder="Respuesta ◆ (Azul)">
+                </div>
+                <div class="option-input">
+                    <input type="radio" name="correct-answer" value="2" class="radio-custom">
+                    <input type="text" id="opt-2" placeholder="Respuesta ● (Naranja)">
+                </div>
+                <div class="option-input">
+                    <input type="radio" name="correct-answer" value="3" class="radio-custom">
+                    <input type="text" id="opt-3" placeholder="Respuesta ■ (Verde)">
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn-secondary" onclick="saveQuestion()">+ Guardar y añadir otra</button>
+                <button class="btn-start" onclick="startGame()">¡JUGAR!</button>
+            </div>
+        </div>
+
+        <div id="game-view" class="hidden">
+            <div class="game-header">
+                <div style="display: flex; justify-content: space-between; color: #666; margin-bottom: 10px;">
+                    <span id="current-q-num">Pregunta 1</span>
+                    <span id="current-score">Puntos: 0</span>
+                </div>
+                <h2 id="display-question">¿Pregunta?</h2>
+            </div>
+
+            <div class="game-grid">
+                <button class="game-btn btn-red" onclick="handleAnswer(0)">
+                    <span class="shape-icon">▲</span>
+                    <span id="btn-text-0">Opción 1</span>
+                </button>
+                <button class="game-btn btn-blue" onclick="handleAnswer(1)">
+                    <span class="shape-icon">◆</span>
+                    <span id="btn-text-1">Opción 2</span>
+                </button>
+                <button class="game-btn btn-orange" onclick="handleAnswer(2)">
+                    <span class="shape-icon">●</span>
+                    <span id="btn-text-2">Opción 3</span>
+                </button>
+                <button class="game-btn btn-green" onclick="handleAnswer(3)">
+                    <span class="shape-icon">■</span>
+                    <span id="btn-text-3">Opción 4</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="result-view" class="hidden result-box">
+            <h1>¡Juego Terminado!</h1>
+            <p>Tu puntuación final es:</p>
+            <div class="score-display" id="final-score-display">0</div>
+            <div id="feedback-text" style="font-size: 1.2rem; margin-bottom: 20px;"></div>
+            <button class="btn-start" onclick="resetGame()">Crear Nuevo Quiz</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

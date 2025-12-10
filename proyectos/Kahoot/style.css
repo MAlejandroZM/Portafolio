@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    --k-purple: #46178f;
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-orange: #d89e00;
+    --k-green: #26890c;
+    --k-white: #ffffff;
+    --k-grey: #f2f2f2;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--k-grey);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    transition: background-color 0.4s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: var(--k-white);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 30px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+h1 {
+    color: var(--k-purple);
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+/* Counter Style */
+.counter-box {
+    background: #f0f0f0;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: var(--k-purple);
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-group { margin-bottom: 15px; text-align: left; }
+input[type="text"] {
+    width: 100%; padding: 12px; border: 2px solid #ccc;
+    border-radius: 8px; font-size: 1rem; box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+input[type="text"]:focus { border-color: var(--k-purple); outline: none; }
+
+.options-grid-input {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;
+}
+.option-input { display: flex; align-items: center; gap: 10px; }
+.radio-custom { cursor: pointer; accent-color: var(--k-green); transform: scale(1.5); }
+
+/* Buttons */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-start {
+    background-color: var(--k-purple); color: white; border: none;
+    padding: 15px 30px; font-size: 1.1rem; font-weight: 900;
+    border-radius: 50px; cursor: pointer;
+    box-shadow: 0 5px 0 #320d6b;
+    transition: transform 0.1s;
+}
+
+.btn-secondary {
+    background-color: white; color: var(--k-purple); border: 2px solid #ddd;
+    padding: 15px 30px; font-size: 1rem; font-weight: 700;
+    border-radius: 50px; cursor: pointer;
+    box-shadow: 0 5px 0 #ccc;
+    transition: transform 0.1s;
+}
+
+.btn-start:active, .btn-secondary:active {
+    transform: translateY(4px); box-shadow: none;
+}
+
+/* Game & Results */
+.hidden { display: none; }
+.game-header { background: var(--k-white); padding: 20px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 10px; }
+
+.game-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; height: 300px; }
+.game-btn {
+    border: none; color: white; font-size: 1.5rem; font-weight: 700;
+    border-radius: 5px; cursor: pointer; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.2); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.game-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+
+/* Colors */
+.btn-red { background-color: var(--k-red); }
+.btn-blue { background-color: var(--k-blue); }
+.btn-orange { background-color: var(--k-orange); }
+.btn-green { background-color: var(--k-green); }
+.shape-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+
+.score-display { font-size: 5rem; font-weight: 900; color: var(--k-purple); margin: 20px 0; }
+
+@media (max-width: 600px) {
+    .game-grid { grid-template-columns: 1fr; height: auto; }
+    .game-btn { padding: 30px; margin-bottom: 10px; }
+    .options-grid-input { grid-template-columns: 1fr; }
+}
